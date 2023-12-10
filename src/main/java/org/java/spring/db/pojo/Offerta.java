@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Offerta {
@@ -22,12 +23,30 @@ public class Offerta {
 
 	@Column
 	private LocalDate dataFine;
+	
+	@ManyToOne
+	private Pizza pizza;
+	
 
 	public Offerta() {
 	}
 
-	public Offerta(String name, LocalDate dataInzio, LocalDate dataFine) {
+	public Offerta(String name, LocalDate dataInzio, LocalDate dataFine, Pizza pizza) {
+		setName(name);
+		setDataInizio(dataInzio);
+		setDataFine(dataFine);
+		setPizza(pizza);
 
+	}
+	
+	
+
+	public Pizza getPizza() {
+		return pizza;
+	}
+
+	public void setPizza(Pizza pizza) {
+		this.pizza = pizza;
 	}
 
 	public int getId() {

@@ -5,7 +5,9 @@ import java.util.List;
 import org.java.spring.db.pojo.Offerta;
 import org.java.spring.db.repo.OffertaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OffertaService {
 	@Autowired
 	private OffertaRepository offertaRepository;
