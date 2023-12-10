@@ -11,10 +11,13 @@
 	<div class="container h-100">
 		<div class="d-flex justify-content-center align-items-center h-100">
 			<div class="card" style="width: 25rem;">
-				<img th:src="@{${pizza.foto}}" class="card-img-top  p-3" alt="...">
+				<img th:src="@{${pizza.foto}}" class="card-img-top p-3 pb-0" alt="...">
 				<div class="card-body">
+					<ul class="list-group list-group-horizontal gap-2 mb-3 pt-0">
+						<li class="list-group-items badge text-bg-success" th:each="offerta : ${pizza.offerte}">[[${offerta.name}]]</li>
+					</ul>
 					<h3 class="card-title">[[${pizza.name}]]</h3>
-					<h5 class="card-subtitle mb-2 text-body-secondary">[[${pizza.prezzo}]]</h5>
+					<h5 class="card-subtitle mb-2 text-body-secondary">[[${pizza.prezzo}]] €</h5>
 					<p class="card-text">[[${pizza.descrizione}]]</p>
 					<form class="d-inline-block" th:action="@{/pizza/delete/{id} (id=*{pizza.id})}" method="POST">
 						<button class="btn btn-danger" type="submit">Elimina</button>

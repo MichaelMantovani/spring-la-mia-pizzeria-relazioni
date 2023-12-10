@@ -35,7 +35,8 @@
 						<td>[[${pizza.descrizione}]]</td>
 						<td>[[${pizza.prezzo}]] €</td>
 						<td><a th:href="@{pizza/{pizzaId}(pizzaId=${pizza.id})}" class="btn btn-primary">Info</a>
-						<a th:href="@{pizza/edit/{pizzaId}(pizzaId=${pizza.id})}" class="btn btn-warning ms-1">Edit</a>
+							<a th:href="@{pizza/edit/{pizzaId}(pizzaId=${pizza.id})}"
+								class="btn btn-warning ms-1">Edit</a>
 						</td>
 					</tr>
 				</tbody>

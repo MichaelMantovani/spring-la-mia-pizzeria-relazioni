@@ -54,6 +54,16 @@ public class Pizza {
 		setFoto(foto);
 		setPrezzo(prezzo);
 	}
+	
+	
+
+	public List<Offerta> getOfferte() {
+		return offerte;
+	}
+
+	public void setOfferte(List<Offerta> offerte) {
+		this.offerte = offerte;
+	}
 
 	public int getId() {
 		return id;

@@ -23,10 +23,9 @@ public class Offerta {
 
 	@Column
 	private LocalDate dataFine;
-	
+
 	@ManyToOne
 	private Pizza pizza;
-	
 
 	public Offerta() {
 	}
@@ -38,8 +37,6 @@ public class Offerta {
 		setPizza(pizza);
 
 	}
-	
-	
 
 	public Pizza getPizza() {
 		return pizza;
@@ -83,8 +80,6 @@ public class Offerta {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "Offerta: " + this.name;
 	}
-
 }
