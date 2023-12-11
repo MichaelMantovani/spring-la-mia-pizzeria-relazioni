@@ -21,11 +21,11 @@
 					<h3 class="card-title">[[${pizza.name}]]</h3>
 					<h5 class="card-subtitle mb-2 text-body-secondary">[[${pizza.prezzo}]] €</h5>
 					<p class="card-text">[[${pizza.descrizione}]]</p>
-					<form class="d-inline-block" th:action="@{/pizza/delete/{id} (id=*{pizza.id})}" method="POST">
-						<button class="btn btn-danger" type="submit">Elimina</button>
-					</form>
-					<a class="btn btn-primary" th:href="@{/pizza/{id}/offerta/create (id=*{pizza.id})}">Aggiungi
+					<a class="btn btn-primary btn-sm" th:href="@{/pizza/{id}/offerta/create (id=*{pizza.id})}">Aggiungi
 						Offerta</a>
+					<form class="d-inline-block" th:action="@{/pizza/delete/{id} (id=*{pizza.id})}" method="POST">
+						<button class="btn btn-danger btn-sm" type="submit">Elimina</button>
+					</form>
 					<a th:replace="returnButton :: button('/', 'Return')"></a>
 				</div>
 			</div>

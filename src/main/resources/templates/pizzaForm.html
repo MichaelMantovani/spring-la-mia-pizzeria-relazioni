@@ -58,8 +58,8 @@
 					</ul>
 				</div>
 			</div>
-			<button th:if="${pizza.id == 0}" class="btn btn-primary me-1">Crea pizza</button>
-			<button th:if="${pizza.id != 0}" class="btn btn-warning me-1">Modifica pizza</button>
+			<button th:if="${pizza.id == 0}" class="btn btn-primary btn-sm me-1">Crea pizza</button>
+			<button th:if="${pizza.id != 0}" class="btn btn-warning btn-sm me-1">Modifica pizza</button>
 			<a  th:replace="returnButton :: button('/', 'Return')"></a>
 		</form>
 	</div>
