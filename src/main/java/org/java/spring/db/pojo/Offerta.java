@@ -15,14 +15,14 @@ public class Offerta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(length = 60, unique = true, nullable = false)
+	@Column(length = 60, nullable = false)
 	private String name;
 
 	@Column
-	private LocalDate dataInizio;
+	private LocalDate startDate;
 
 	@Column
-	private LocalDate dataFine;
+	private LocalDate endDate;
 
 	@ManyToOne
 	private Pizza pizza;
@@ -30,10 +30,10 @@ public class Offerta {
 	public Offerta() {
 	}
 
-	public Offerta(String name, LocalDate dataInzio, LocalDate dataFine, Pizza pizza) {
+	public Offerta(String name, LocalDate startDate, LocalDate endDate, Pizza pizza) {
 		setName(name);
-		setDataInizio(dataInzio);
-		setDataFine(dataFine);
+		setStartDate(startDate);
+		setEndDate(endDate);
 		setPizza(pizza);
 
 	}
@@ -62,24 +62,24 @@ public class Offerta {
 		this.name = name;
 	}
 
-	public LocalDate getDataInizio() {
-		return dataInizio;
+	public LocalDate getStartDate() {
+		return startDate;
 	}
 
-	public void setDataInizio(LocalDate dataInizio) {
-		this.dataInizio = dataInizio;
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
 	}
 
-	public LocalDate getDataFine() {
-		return dataFine;
+	public LocalDate getEndDate() {
+		return endDate;
 	}
 
-	public void setDataFine(LocalDate dataFine) {
-		this.dataFine = dataFine;
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
 
 	@Override
 	public String toString() {
-		return "Offerta: " + this.name;
+		return "Offerta: " + this.name + "[ id: " + getId() + "]";
 	}
 }

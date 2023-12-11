@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OffertaService {
+
 	@Autowired
 	private OffertaRepository offertaRepository;
 
@@ -23,5 +24,5 @@ public class OffertaService {
 	public void save(Offerta offerta) {
 		offertaRepository.save(offerta);
 	}
-	
+
 }

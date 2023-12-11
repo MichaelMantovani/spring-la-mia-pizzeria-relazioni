@@ -42,7 +42,7 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 				10));
 		
 		List<Pizza> pizze = pizzaService.findAll();
-		offertaService.save(new Offerta("3x2", LocalDate.now(), LocalDate.now().plusDays(25), pizze.get(0)));
+		offertaService.save(new Offerta("Sconto 20%",  LocalDate.now(), LocalDate.now().plusDays(25), pizze.get(0)));
 	}
 	
 	
