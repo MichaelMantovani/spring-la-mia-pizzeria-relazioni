@@ -3,38 +3,57 @@ package org.java.spring.controller;
 import java.util.List;
 
 import org.java.spring.db.pojo.Ingrediente;
-import org.java.spring.db.repo.IngredienteRepository;
+import org.java.spring.db.serv.IngredienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class IngredienteController {
 
 	@Autowired
-	IngredienteRepository ingredienteRepository;
+	IngredienteService ingredienteService;
 
 	@GetMapping("/ingredienti")
 	public String indexIngredienti(Model model) {
-		List<Ingrediente> ingredienti = ingredienteRepository.findAll();
+		List<Ingrediente> ingredienti = ingredienteService.findAll();
 		model.addAttribute("ingredienti", ingredienti);
-		model.addAttribute("ingrediente", new Ingrediente());
 		return "indexIngredienti";
 	}
 
 	@PostMapping("/ingredienti")
 	public String addIngrediente(@ModelAttribute Ingrediente ingrediente) {
-		ingredienteRepository.save(ingrediente);
+		ingredienteService.save(ingrediente);
 		return "redirect:/indexIngredienti";
 	}
 
-	@GetMapping("/ingredienti/delete/{id}")
-	public String deleteIngrediente(@PathVariable("id") int id) {
-		ingredienteRepository.deleteById(id);
-		return "redirect:/indexIngredienti";
+	@GetMapping("/ingredienti/create")
+	public String createIngredienti(Model model) {
+
+		model.addAttribute("ingrediente", new Ingrediente());
+
+		return "ingredienteForm";
+	}
+
+	@PostMapping("/ingredienti/create")
+	public String storeIngredient(Model model, @Valid @ModelAttribute Ingrediente ingrediente,
+			BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
+
+			model.addAttribute("ingrediene", ingrediente);
+
+			return "ingredienteForm";
+		}
+
+		ingredienteService.save(ingrediente);
+
+		return "redirect:/ingredienti";
 	}
 }
