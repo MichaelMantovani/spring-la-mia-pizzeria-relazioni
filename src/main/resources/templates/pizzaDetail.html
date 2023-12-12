@@ -20,7 +20,14 @@
 					</ul>
 					<h3 class="card-title">[[${pizza.name}]]</h3>
 					<h5 class="card-subtitle mb-2 text-body-secondary">[[${pizza.prezzo}]] €</h5>
-					<p class="card-text">[[${pizza.descrizione}]]</p>
+					<div class="card-body" th:if="*{pizza.ingredienti.size() > 0}">
+						<div class="fs-4 mb-2">Ingredienti: </div>
+						<ul>
+							<li th:each="ingrediente : *{pizza.ingredienti}" th:object="${ingrediente}">
+								[[*{name}]] <br>
+							</li>
+						</ul>
+					</div>
 					<a class="btn btn-primary btn-sm" th:href="@{/pizza/{id}/offerta/create (id=*{pizza.id})}">Aggiungi
 						Offerta</a>
 					<form class="d-inline-block" th:action="@{/pizza/delete/{id} (id=*{pizza.id})}" method="POST">

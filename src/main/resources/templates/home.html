@@ -24,7 +24,7 @@
 					<tr>
 						<th scope="col">Id</th>
 						<th scope="col">Nome</th>
-						<th scope="col">Descrizione</th>
+						<th scope="col">Ingredienti</th>
 						<th scope="col">Prezzo</th>
 					</tr>
 				</thead>
@@ -32,7 +32,11 @@
 					<tr th:each="pizza : ${pizze}">
 						<td>[[${pizza.id}]]</td>
 						<th>[[${pizza.name}]]</th>
-						<td>[[${pizza.descrizione}]]</td>
+						<td>
+							<ul class="list-unstyled d-flex justify-content-center">
+								<li th:each="ingrediente : ${pizza.ingredienti}">[[${ingrediente.name}]],</li>
+							</ul>
+						</td>
 						<td>[[${pizza.prezzo}]] €</td>
 						<td><a th:href="@{pizza/{pizzaId}(pizzaId=${pizza.id})}" class="btn btn-primary">Info</a>
 							<a th:href="@{pizza/edit/{pizzaId}(pizzaId=${pizza.id})}"
