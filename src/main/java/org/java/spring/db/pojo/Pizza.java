@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -44,6 +45,9 @@ public class Pizza {
 	@OneToMany(mappedBy = "pizza")
 	private List<Offerta> offerte;
 
+	@ManyToMany
+	private List<Ingrediente> ingredienti;
+
 	public Pizza() {
 	}
 
@@ -54,8 +58,6 @@ public class Pizza {
 		setFoto(foto);
 		setPrezzo(prezzo);
 	}
-	
-	
 
 	public List<Offerta> getOfferte() {
 		return offerte;
@@ -64,8 +66,6 @@ public class Pizza {
 	public void setOfferte(List<Offerta> offerte) {
 		this.offerte = offerte;
 	}
-	
-	
 
 	public int getId() {
 		return id;
@@ -106,7 +106,6 @@ public class Pizza {
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
-	
 
 	@Override
 	public String toString() {
