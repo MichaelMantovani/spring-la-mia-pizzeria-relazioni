@@ -28,6 +28,16 @@ public class Ingrediente {
 	public Ingrediente(String name) {
 		setName(name);
 	}
+	
+	
+
+	public List<Pizza> getPizzas() {
+		return pizzas;
+	}
+
+	public void setPizzas(List<Pizza> pizzas) {
+		this.pizzas = pizzas;
+	}
 
 	public int getId() {
 		return id;
