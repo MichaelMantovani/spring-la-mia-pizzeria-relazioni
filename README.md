@@ -1,0 +1,1 @@
+In questo esercizio, riprendo il precedente, ricreando un gestionale per una pizzeria. In questo specifico progetto, introduco le relazioni aggiungendo la possibilità di creare delle offerte speciali.
